@@ -19,10 +19,14 @@ class Solution {
             }
             return;
         }
-        for (int i =(length+start-1) / 2; i >= start; i--){
-                int swap = nums[i];
-                nums[i] = nums[length+start-i-1];
-                nums[length+start-i-1] = swap;
-            }
+        Arrays.sort(nums, start, length);
+        int i = start;
+        start--;
+        while (nums[i] <= nums[start]){
+            i++;
+        }
+        int swap = nums[i];
+        nums[i] = nums[start];
+        nums[start] = swap;
     }
 }
